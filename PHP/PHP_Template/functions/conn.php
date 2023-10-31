@@ -8,7 +8,7 @@ class Conn
         try {
             $servername = "localhost:3306";
             $username = "root";
-            $password = "";
+            $password = "admin";
             $schema = "test";
 
             $this->conn = new PDO('mysql:host=' . $servername . ';dbname=' . $schema . ';charset=utf8', $username, $password);
@@ -34,13 +34,13 @@ function makeTable($query, $arrayValues = null)
 {
   $conn = new Conn();
   $stmt = $conn->makeStatement($query, $arrayValues);
-  $meta = array();
+
   echo '<table class="table">
         <tr class="tr">';
   for($i = 0; $i < $stmt->columnCount(); $i++)
   {
-    $meta[] = $stmt->getColumnMeta($i);
-    echo '<th class="th">'.$meta[$i]['name'].'</th>';
+    $meta = $stmt->getColumnMeta($i);
+    echo '<th class="th">'.$meta['name'].'</th>';
   }
   echo '</tr>';
   while($row = $stmt->fetch(PDO::FETCH_NUM)) {
