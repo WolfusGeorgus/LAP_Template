@@ -1,0 +1,20 @@
+https://www.freecodecamp.org/news/how-to-get-started-with-php/
+
+1) VS Code Download
+	https://code.visualstudio.com/download
+
+5) install xampp
+
+(Vllt php selbst nicht isntallieren)
+
+2) latest php download
+	https://www.php.net/downloads.php
+	maybe ungebungsvariablen?
+
+3) XDebug Download
+	TS (THREAD SAFE VERSION)
+	in /ext mit php_xdebug.dll
+	
+4) Reinstalled VCRUNTIME140 ????
+	https://learn.microsoft.com/de-DE/cpp/windows/latest-supported-vc-redist?view=msvc-170
+
