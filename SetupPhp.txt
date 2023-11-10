@@ -1,9 +1,12 @@
-https://www.freecodecamp.org/news/how-to-get-started-with-php/
+TODO: Erstellen von image mit deutschen Einstellungen und VS Code oben und dann kopieren
 
-1) VS Code Download
+1) VS Code Download, Chrome, Git Bash, XAMPP, XDebug DLL
 	https://code.visualstudio.com/download
 
 5) install xampp
+
+https://www.freecodecamp.org/news/how-to-get-started-with-php/
+
 
 (Vllt php selbst nicht isntallieren)
 
