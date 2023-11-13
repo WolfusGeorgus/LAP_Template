@@ -2,6 +2,9 @@
 
 1) XAMPP, MySQL Workbench, XDebug DLL (TS - Thread Safe)
 	XAMPP zu erst, weil sonst vielleicht C++ Libs fehlen
+	In XAMPP muss man die Files in htdocs legen ( z.B: C:\xampp\htdocs\Website\index.php)
+	Oder in XAMPP beim Starten von Server die Config ändern (suche nach htdocs in config file httpd.conf)
+	
 
 2) Files von Git runterladen
 
@@ -75,3 +78,5 @@
         }
     ]
 }
+
+9) Starten dann über Browser mit localhost/<Website Name> oder start with built-in Webserver in VS Code
