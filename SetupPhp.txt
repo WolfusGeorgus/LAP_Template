@@ -1,6 +1,7 @@
 (VS Code und Chrome bereits installiert)
 
 1) XAMPP, MySQL Workbench, XDebug DLL (TS - Thread Safe)
+	XAMPP zu erst, weil sonst vielleicht C++ Libs fehlen
 
 2) Files von Git runterladen
 
@@ -19,29 +20,58 @@
 
 6) PHP Debug Extension für VS Code runterladen (10 Mio. Downloads)
 
-7) Run index.php
+7) Run index.php (oder Settings => User => Extensions => Debug => settings.json)
 	Da sollte dann gesagt werden, dass er den Executable Path  nicht findet
 	Dort dann auf settings.json klicken und Pfad mit "C:\\xampp\\php\\php.exe" hinzufügen
+{
+    "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
+    "php.debug.executablePath": "C:\\xampp\\php\\php.exe",
+}
 
-8) Auf "Run And Debug"
+8) Auf "Run And Debug" (create a launch.json file)
 	Dort müssen auch wieder Settings angepasst werden, in die Richtung:
 {
-"version": "0.2.0",
-"configurations": [
-
-    {
-        "name": "Listen for XDebug",
-        "type": "php",
-        "request": "launch",
-        "port": 9000,
-    },
-    {
-        "name": "Launch currently open script",
-        "type": "php",
-        "request": "launch",
-        "program": "${file}",
-        "cwd": "${fileDirname}",
-        "port": 9000,
-    }
-
-]}
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003
+        },
+        {
+            "name": "Launch currently open script",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9003,
+            "runtimeArgs": [
+                "-dxdebug.start_with_request=yes"
+            ],
+            "env": {
+                "XDEBUG_MODE": "debug,develop",
+                "XDEBUG_CONFIG": "client_port=${port}"
+            }
+        },
+        {
+            "name": "Launch Built-in web server",
+            "type": "php",
+            "request": "launch",
+            "runtimeArgs": [
+                "-dxdebug.mode=debug",
+                "-dxdebug.start_with_request=yes",
+                "-S",
+                "localhost:0"
+            ],
+            "program": "",
+            "cwd": "${workspaceRoot}",
+            "port": 9003,
+            "serverReadyAction": {
+                "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
+                "uriFormat": "http://localhost:%s",
+                "action": "openExternally"
+            }
+        }
+    ]
+}
