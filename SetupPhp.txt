@@ -1,23 +1,47 @@
-TODO: Erstellen von image mit deutschen Einstellungen und VS Code oben und dann kopieren
+(VS Code und Chrome bereits installiert)
 
-1) VS Code Download, Chrome, Git Bash, XAMPP, XDebug DLL
-	https://code.visualstudio.com/download
+1) XAMPP, MySQL Workbench, XDebug DLL (TS - Thread Safe)
 
-5) install xampp
+2) Files von Git runterladen
 
-https://www.freecodecamp.org/news/how-to-get-started-with-php/
+3) xdebug dll in "php_xdebug.dll" umbenennen
 
+4) xdebug in c:\xampp\php\ext
 
-(Vllt php selbst nicht isntallieren)
+5) php.ini (auf Port achten)
+	[XDebug]
+	zend_extension = xdebug
+	xdebug.mode = debug
+	xdebug.stopOnEntry = true
+	xdebug.start_with_request = yes
+	xdebug.client_host = "127.0.0.1"
+	xdebug.client_port = 9003
 
-2) latest php download
-	https://www.php.net/downloads.php
-	maybe ungebungsvariablen?
+6) PHP Debug Extension für VS Code runterladen (10 Mio. Downloads)
 
-3) XDebug Download
-	TS (THREAD SAFE VERSION)
-	in /ext mit php_xdebug.dll
-	
-4) Reinstalled VCRUNTIME140 ????
-	https://learn.microsoft.com/de-DE/cpp/windows/latest-supported-vc-redist?view=msvc-170
+7) Run index.php
+	Da sollte dann gesagt werden, dass er den Executable Path  nicht findet
+	Dort dann auf settings.json klicken und Pfad mit "C:\\xampp\\php\\php.exe" hinzufügen
 
+8) Auf "Run And Debug"
+	Dort müssen auch wieder Settings angepasst werden, in die Richtung:
+{
+"version": "0.2.0",
+"configurations": [
+
+    {
+        "name": "Listen for XDebug",
+        "type": "php",
+        "request": "launch",
+        "port": 9000,
+    },
+    {
+        "name": "Launch currently open script",
+        "type": "php",
+        "request": "launch",
+        "program": "${file}",
+        "cwd": "${fileDirname}",
+        "port": 9000,
+    }
+
+]}
