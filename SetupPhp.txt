@@ -80,3 +80,7 @@
 }
 
 9) Starten dann über Browser mit localhost/<Website Name> oder start with built-in Webserver in VS Code
+	Zum Starten und Debuggen in den "Run and Debug" Reiter im Side-Panel
+
+10) In MySQL Workbench eine Connection zu 127.0.0.1 / 3306 machen (MySQL in XAMPP starten)
+	Connection Name egal
