@@ -71,7 +71,7 @@ if (isset($_POST['action'])) {
 
   if ($_POST['action'] == 'add') {
     $query= "insert into person (per_fname, per_lname) values (?,?)";
-    $conn->makeStatement($query, array($fistname, $lastname));
+    $conn->makeStatement($query, array($firstname, $lastname));
   }
   else if ($_POST['action'] == 'change') {
     $query= "update person set per_fname = ?, per_lname = ? where per_id = ?";
