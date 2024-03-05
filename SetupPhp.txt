@@ -5,7 +5,6 @@
 	In XAMPP muss man die Files in htdocs legen ( z.B: C:\xampp\htdocs\Website\index.php)
 	Oder in XAMPP beim Starten von Server die Config ändern (suche nach htdocs in config file httpd.conf)
 	
-
 2) Files von Git runterladen
 
 3) xdebug dll in "php_xdebug.dll" umbenennen
@@ -81,6 +80,7 @@
 
 9) Starten dann über Browser mit localhost/<Website Name> oder start with built-in Webserver in VS Code
 	Zum Starten und Debuggen in den "Run and Debug" Reiter im Side-Panel
+	(Zum Debuggen braucht man noch eine XDebug Browser Extension)
 
 10) In MySQL Workbench eine Connection zu 127.0.0.1 / 3306 machen (MySQL in XAMPP starten)
 	Connection Name egal
